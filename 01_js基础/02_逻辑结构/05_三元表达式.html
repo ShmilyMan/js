@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+        三元表达式：条件表达式 ？ 语句1 ：语句2
+        如果条件表达式的结果为真，则返回语句1的执行结果
+        如果条件表达式的结果为假，则返回语句2的执行结果
+        相当于：
+          if (条件表达式) {
+            // 条件表达式结果为真，则执行该部分
+          } else {
+            // 条件表达式结果为假，则执行这一部分的语句
+          }
+    */
+    // 数字补零：如果所输入的数字小于10，则在该数字的前面补一个0
+    let time = prompt('请输入一个数字：')
+    let result = time < 10 ? '0' + time : '' + time
+    alert(result)
+  </script>
+</head>
+<body>
+
+</body>
+</html>

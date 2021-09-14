@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+  <script>
+    /*
+        排他思想：如果有同一组元素，我们想要某一个元素实现某种样式，需要用到循环的排他思想算法：
+        1.所有元素全部清除样式。
+        2.给当前的元素设置样式。
+    */
+    // 实现点击按钮使当前的按钮变颜色的效果
+    var btns = document.getElementsByTagName('button');
+
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].onclick = function () {
+        // 清除所有按钮的样式
+        for (var j = 0; j < btns.length; j++) {
+          btns[j].style.backgroundColor = '';
+        }
+        // 给当前的元素设置样式
+        this.style.backgroundColor = 'pink';
+      }
+    }
+  </script>
+</body>
+</html>

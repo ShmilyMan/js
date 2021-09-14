@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .gg {
+      position: relative;
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+    .show {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="gg">
+    <img src="./img/luzhou.jpg" class="show" />
+    <img src="./img/close.jpg" class="close" />
+  </div>
+
+  <script>
+    var gg = document.querySelector('.gg');
+    var close = document.querySelector('.close');
+
+    close.onclick = function () {
+      gg.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

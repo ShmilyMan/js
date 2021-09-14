@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      list-style: none;
+    }
+    .tab {
+      width: 1200px;
+      margin: 200px auto;
+    }
+    .tab .tb_title {
+      width: 100%;
+      height: 45px;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    .tb_title li {
+      float: left;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      padding: 0 26px;
+      cursor: pointer;
+    }
+    .current {
+      background-color: #c81623;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <div class="tb_title">
+      <ul>
+        <li class="current">商品介绍</li>
+        <li>规格与包装</li>
+        <li>售后保障</li>
+        <li>商品评价</li>
+        <li>手机社区</li>
+      </ul>
+    </div>
+    <div class="tb_body">
+      <div class="item">商品介绍模块内容</div>
+      <div class="item" style="display: none;">规格与包装模块内容</div>
+      <div class="item" style="display: none;">售后保障模块内容</div>
+      <div class="item" style="display: none;">商品评价模块内容</div>
+      <div class="item" style="display: none;">手机社区模块内容</div>
+    </div>
+  </div>
+
+  <script>
+    var lis = document.querySelectorAll('.tb_title li');
+    var items = document.querySelectorAll('.tb_body .item');
+
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].setAttribute('index', i);
+      lis[i].onclick = function () {
+        var index = parseInt(this.getAttribute('index'));
+        // 清除所有的样式
+        for (var i = 0; i < lis.length; i++) {
+          lis[i].className = '';
+        }
+        // 设置当前li的样式
+        this.className = 'current';
+        // 改变body的内容
+        for (var j = 0; j < items.length; j++) {
+          items[j].style.display = 'none';
+        }
+        items[index].style.display = 'block';
+      };
+
+    }
+  </script>
+</body>
+</html>

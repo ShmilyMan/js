@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .sp_img {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 100px 0 0 100px;
+      border: 1px solid #ccc;
+    }
+    .mask {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 300px;
+      background-color: #FEDE4F;
+      opacity: .5;
+      cursor: move;
+    }
+    .big {
+      display: none;
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: 401px;
+      width: 500px;
+      height: 500px;
+      border: 1px solid #ccc;
+    }
+    .big img {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="sp_img">
+    <div class="mask"></div>
+    <img src="images/s3.png" />
+    <div class="big">
+      <img src="images/big.jpg" class="bigImg"/>
+    </div>
+  </div>
+  <script>
+    var sp_img = document.querySelector('.sp_img');
+    var mask = document.querySelector('.mask');
+    var big = document.querySelector('.big');
+    var bigImg = document.querySelector('.bigImg');
+
+    // 1.当鼠标移动到图片的盒子上的时候，显示黄色的遮盖区域和大盒子,当鼠标离开时，这两个盒子隐藏
+    sp_img.addEventListener('mouseover', function () {
+      mask.style.display = 'block';
+      big.style.display = 'block';
+    });
+    sp_img.addEventListener('mouseout', function () {
+      mask.style.display = 'none';
+      big.style.display = 'none';
+    });
+
+    // 2.当鼠标移动时，遮盖的盒子也跟着移动
+    sp_img.addEventListener('mousemove', function (e) {
+      var maskX = e.pageX - this.offsetLeft;
+      var maskY = e.pageY - this.offsetTop;
+
+      var moveX = maskX - mask.offsetWidth / 2;
+      var moveY = maskY - mask.offsetHeight / 2;
+
+      // 卡住遮盖层
+      if (moveX <= 0) {
+        moveX = 0;
+      } else if (moveX > this.offsetWidth - mask.offsetWidth) {
+        moveX = this.offsetWidth - mask.offsetWidth
+      }
+      if (moveY <= 0) {
+        moveY = 0;
+      } else if (moveY > this.offsetWidth - mask.offsetWidth) {
+        moveY = this.offsetWidth - mask.offsetWidth
+      }
+      mask.style.left = moveX + 'px';
+      mask.style.top = moveY + 'px';
+
+      // 3.大盒子中的图片也同时移动等比例的距离 = 小盒子中移动的距离 * 在大盒子中最大的移动距离 / 在小盒子中最大的移动距离
+      var bigMoveX = moveX * (bigImg.offsetWidth - big.offsetWidth) / (this.offsetWidth - mask.offsetWidth);
+      var bigMoveY = moveY * (bigImg.offsetHeight - big.offsetHeight) / (this.offsetHeight - mask.offsetHeight);
+      console.log(bigMoveX,bigMoveY)
+      bigImg.style.left = -bigMoveX + 'px';
+      bigImg.style.top = -bigMoveY + 'px';
+    });
+  </script>
+</body>
+</html>

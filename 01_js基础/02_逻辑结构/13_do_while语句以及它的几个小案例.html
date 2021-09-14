@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+      do while语句的格式：
+        do {
+          // 循环体
+        } while (条件表达式);
+      先执行循环体的部分再进行条件判断，当条件满足时执行循环体的部分，当条件不满足时结束循环执行循环之后的语句
+      不管怎么样，do while的循环体部分的语句都会执行一次
+    */
+    // do while循环案例
+    // 1. 打印人的一生，从1岁到100岁
+    var i = 1;
+    do {
+      console.log('你今年' + i + '岁了。');
+      i++;
+    } while (i <= 100);
+
+    // 2. 计算 1 ~ 100 之间所有整数的和
+    var j = 0;
+    var sum = 0;
+    do {
+      sum += j;
+      j++;
+    } while (j <= 100);
+    console.log(sum);   // 5050
+
+    // 3. 弹出一个提示框， 你爱我吗？  如果输入我爱你，就提示结束，否则，一直询问。
+    var message = '';
+    do {
+      message = prompt('你爱我吗？');
+    } while (message !== '我爱你');
+    alert('我也爱你呀！');
+  </script>
+</head>
+<body>
+
+</body>
+</html>

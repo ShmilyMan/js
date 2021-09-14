@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+      1.里面现存有  100 块钱。
+      2.如果存钱，就用输入钱数加上先存的钱数, 之后弹出显示余额提示框
+      3.如果取钱，就减去取的钱数，之后弹出显示余额提示框
+      4.如果显示余额，就输出余额
+      5.如果退出，弹出退出信息提示框
+    */
+    var money = 100;
+    var info = '请输入您需要的操作：\n 1.存钱\n 2.取钱 \n 3.显示余额 \n 4.退出';
+    while (true) {
+      var select = prompt(info);
+      if (select == 1) {
+        // 存钱
+        var save = prompt('请输入您要存的钱数：');
+        money += parseInt(save);
+        alert('您的余额是：' + money);
+      } else if (select == 2) {
+        // 取钱
+        var getMoney = parseInt(prompt('请输入您要取出的钱数'));
+        if (getMoney > money) {
+          alert('您没有这么多钱哦!');
+        } else {
+          money -= getMoney;
+          alert('您的余额是：' + money);
+        }
+      } else if (select == 3) {
+        // 显示余额
+        alert('您的余额是：' + money);
+      } else {
+        // 退出
+        alert('退出成功!');
+        break;
+      }
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

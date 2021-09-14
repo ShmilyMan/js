@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .box {
+      position: relative;
+      width: 300px;
+      margin: 200px auto;
+      border-bottom: 1px solid #ccc;
+    }
+    .box input {
+      width: 270px;
+      height: 30px;
+      border: none;
+      outline: none;
+    }
+    .box img {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 24px;
+    }
+    .box img:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <lable>
+      <img src="../images/close.png" />
+    </lable>
+    <input type="password" />
+  </div>
+
+  <script>
+    var img = document.querySelector('.box img');
+    var input = document.querySelector('.box input');
+
+    var flag = true;
+    img.onclick = function () {
+      if (flag) {
+        input.type = 'text';
+        this.src = '../images/open.png';
+        flag = false;
+      } else {
+        input.type = 'password';
+        this.src = '../images/close.png';
+        flag = true;
+      }
+    }
+  </script>
+</body>
+</html>

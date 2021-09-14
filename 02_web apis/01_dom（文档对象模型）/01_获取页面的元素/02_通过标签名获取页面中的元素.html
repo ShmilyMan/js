@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <ul id="wait">
+    <li>只为等你啊1</li>
+    <li>只为等你啊2</li>
+    <li>只为等你啊3</li>
+    <li>只为等你啊4</li>
+    <li>只为等你啊5</li>
+  </ul>
+  <ul>
+    <li>啦啦啦1</li>
+    <li>啦啦啦2</li>
+    <li>啦啦啦3</li>
+    <li>啦啦啦4</li>
+    <li>啦啦啦5</li>
+  </ul>
+  <script>
+    /*
+        通过标签名获取页面中的元素：getElementsByTagName(标签名)
+        (1) 参数为标签名的名称。
+        (2) document.getElementsByTagName(标签名)获取的是页面中所有的该标签名的元素。
+        (3) 要想获取特定的标签的各个元素，可以使用 标签对象.getElementsByTagName(标签名) 的方法。
+        (4) 它的返回值是一个伪数组（有长度可以进行遍历，可以通过进行索引伪数组中的数组元素，但是没有数组的一些内置的方法）。
+    */
+    var lis = document.getElementsByTagName('li');
+    console.log(lis);
+    // 对所获取的标签对象遍历并进行输出
+    for (var i = 0; i < lis.length; i++) {
+      console.log(lis[i]);
+    }
+    // 获取特定ul下的li
+    var wait = document.getElementById('wait');
+    lis = wait.getElementsByTagName('li');
+    console.log('-------------------')
+    console.log(lis);
+  </script>
+</body>
+</html>

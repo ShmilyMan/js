@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <script>
+    // 鼠标在盒子中的位置 = 鼠标在页面中的位置 - 盒子在页面中的位置
+    var box = document.querySelector('.box');
+
+    box.addEventListener('mousemove', function (e) {
+      console.log(this.offsetWidth)
+      var x = e.pageX - this.offsetLeft;
+      var y = e.pageY - this.offsetTop;
+      this.innerHTML = '（' + x + ',' + y + '）';
+    });
+  </script>
+</body>
+</html>

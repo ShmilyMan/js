@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    input {
+      width: 200px;
+      height: 15px;
+      border: 1px solid #ccc;
+      outline: none;
+      color: #ccc;
+      margin: 200px 600px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="请输入用户名和密码" />
+
+  <script>
+    var input = document.querySelector('input');
+
+    input.onfocus = function () {
+      if (this.value === '请输入用户名和密码') {
+        this.value = '';
+        this.style.borderColor = 'pink';
+      }
+    }
+
+    input.onblur = function () {
+      if (this.value === '') {
+        this.value = '请输入用户名和密码';
+        this.style.borderColor = '#ccc';
+      }
+    }
+  </script>
+</body>
+</html>

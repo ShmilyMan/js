@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div></div>
+  <script>
+    /*
+        H5新增自定义属性
+        1.设置H5的自定义属性
+          H5规定自定义属性以 data- 开头   eg: <div data-index="0"></div> 或者 element.setAttribute('data-index',0);
+        2.H5新增的获取自定义属性
+          element.dataset.index 或者 element.dataset['index'] 如果为 data-item-index 的形式 则采用 itemIndex 明峰命名法的形式
+          element.dataset 返回的是一个对象形式的数据。
+          注意：这种形式 ie11 才开始支持;
+        为了考虑到兼容性，一般使用get,setAttribute的形式。
+    */
+    var div = document.querySelector('div');
+
+    // 设置元素的自定义属性
+    div.setAttribute('data-item-index', 0);
+
+    // 获取元素的自定义属性的值
+    console.log(div.dataset.itemIndex);
+  </script>
+</body>
+</html>

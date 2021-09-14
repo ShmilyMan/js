@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    // 1.求100以内所有能被3和7整除的数的和
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+      if (i % 3 == 0 || i % 7 == 0) {
+        sum += i;
+      }
+    }
+    console.log(sum);  //2208
+
+    // 2.使用for循环打印三角形
+    var str = '';
+    for (i = 1; i <= 5; i++) {
+      for (j = 1; j <= i; j++) {
+        str += '☆';
+      }
+      str += '\n';
+    }
+    console.log(str);
+
+    // 3.使用for循环打印99乘法表
+    str = '';
+    for (var i = 1; i <= 9; i++) {
+      for (var j = 1; j <= i; j++) {
+        str += j + 'x' + i + '=' + i * j + '\t';
+      }
+      str += '\n';
+    }
+    console.log(str);
+
+    // 4.用户登录验证
+    var username = prompt('请输入用户名：');
+    var password = prompt('请输入密码：')
+    while (username != 'admin' && password != '123456') {
+      username = prompt('请输入用户名：');
+      password = prompt('请输入密码：')
+    }
+    alert('登录成功!');
+
+    // 5.求1-100之间个位数不为3的数的累加和
+    sum = 0;
+    for (var i = 1; i < 100; i++) {
+      if (i % 10 == 3) {
+        continue;
+      }
+      sum += i;
+    }
+    console.log(sum); // 4470
+  </script>
+</head>
+<body>
+
+</body>
+</html>

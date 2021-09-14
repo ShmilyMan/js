@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button id="ldh">刘德华</button>
+  <button id="zxy">张学友</button>
+  <img src="../images/ldh.jpg" title="刘德华" />
+  <script>
+    /*
+        常用元素的属性操作：
+        1.innerText,innerHTML：获取或改变元素的内容
+        2.src（图片的地址）,href（链接的地址）
+        3.id（元素的ID号）,alt（图片加载失败所替换的文字）,title（鼠标悬停在图片上显示的文字）
+    */
+    // 案例：点击按钮切换图片的内容
+    var ldh = document.getElementById('ldh');
+    var zxy = document.getElementById('zxy');
+    var img = document.querySelector('img');
+
+    ldh.onclick = function () {
+      img.src = '../images/ldh.jpg';
+      img.title = '刘德华';
+    }
+    zxy.onclick = function () {
+      img.src = '../images/zxy.jpg';
+      img.title = '张学友';
+    }
+  </script>
+</body>
+</html>

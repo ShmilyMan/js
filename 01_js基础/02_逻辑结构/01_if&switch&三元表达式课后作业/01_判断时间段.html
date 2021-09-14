@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+      用户输入几点弹出问候信息；
+      如用户输入12点中午好；
+      用户输入18点 弹出傍晚好；
+    */
+    var time = prompt('时间：')
+    if (time >= 6 && time < 12) {
+      alert('早上好')
+    } else if (time >= 12 && time < 18) {
+      alert('中午好')
+    } else if (time >= 18 && time <= 24 || time >= 0 && time < 6) {
+      // 注意：&&的优先级比||的优先级高
+      alert('晚上好')
+    } else {
+      alert('您输入的时间不对哦！')
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

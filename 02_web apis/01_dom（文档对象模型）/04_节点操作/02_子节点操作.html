@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <ul>
+    <li>li111</li>
+    <li>li222</li>
+    <li>li333</li>
+    <li>li444</li>
+  </ul>
+  <ol>
+    <li>li111</li>
+    <li>li222</li>
+    <li>li333</li>
+    <li>li444</li>
+  </ol>
+  <script>
+    /*
+        1.获取元素所有的子节点
+          (1) parentNode.childNode (标准) 返回包含指定节点的子节点集合，该集合为及时更新的集合。
+          注意：返回值里面包含了所有的子元素节点，包括元素节点、文本节点等  如果只想要获取里面的元素节点，则
+          需要专门的处理，所以我们一般不使用这种方式。
+          (2) parentNode.children (非标准) 是一个只读属性 返回所有子元素节点，它只返回子元素节点，其他节点不返回
+          注意：虽然children是一个非标准的，但是得到了各个浏览器的支持，因此我们可以放心使用。
+        2.获取元素的第一个子节点
+          (1) parentNode.firstChildren 返回的值包含所有的子元素节点（包括文本节点，元素节点等） 如果找不到则返回 null
+          (2) parentNode.firstElementChildren 返回元素节点中的第一个子元素节点  找不到则返回 null  但是存在兼容性问题，IE9以上才支持
+        3.获取元素的最后一个子节点
+          (1) parentNode.lastChildren 返回的值包含所有的子元素节点（包括文本节点，元素节点等） 如果找不到则返回 null
+          (2) parentNode.lastElementChildren 返回元素节点中的第一个子元素节点  找不到则返回 null  但是存在兼容性问题，IE9以上才支持
+        如果想要获取父元素的第一个元素的子节点和最后一个元素的子节点一般不使用上述的2，3中的方法一般结合 1 中的（2）方法一起使用
+    */
+    var ol = document.querySelector('ol');
+
+    // 从childNode获取的节点中筛选出所有子元素的节点
+    // 使用节点的 nodeType 属性   如果是元素节点，该属性值为 1  如果是属性节点，该属性值为 2 如果为文本节点，该属性值为 3
+    var lis = ol.childNodes;
+    for (var i = 0; i < lis.length; i++) {
+      if (lis[i].nodeType === 1) {
+        console.log(lis[i]);
+      }
+    }
+    console.log('--------------------');
+    // 获取ol元素的所有子节点元素
+    console.log(ol.children);
+    // 获取ol元素的第一个和最后一个子元素的节点
+    console.log(ol.children[0]);
+    console.log(ol.children[ol.children.length - 1]);
+  </script>
+</body>
+</html>

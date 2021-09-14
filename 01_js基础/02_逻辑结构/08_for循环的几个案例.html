@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    // 1. 求1-100之间所有数的平均值
+    var sum = 0;
+    var average = 0;
+    for (var i = 1; i <= 100; i++) {
+      sum += i;
+    }
+    average = sum / 100;
+    console.log(average);   // 50.5
+
+    // 2. 求1-100之间所有偶数和奇数的和
+    var even = 0; //偶数
+    var odd = 0; //奇数
+    for (var i = 1; i <=100; i++) {
+      if (i % 2 == 0) {
+        even += i;
+      } else {
+        odd += i;
+      }
+    }
+    console.log(even);  // 2550
+    console.log(odd);   // 2500
+
+    // 3. 求1-100之间所有能被3整除的数字的和
+    var reasult = 0;
+    for (var i = 1; i <= 100; i++) {
+      if (i % 3 == 0) {
+        reasult += i;
+      }
+    }
+    console.log(reasult);  // 1683
+
+    // 4.打印一行5个小星星
+    var str = ''
+    for (var i = 0; i < 5; i++) {
+      str += '★'
+    }
+    console.log(str);
+
+    // 5.录入学生成绩（先输入学生的总人数再依次输入每个学生的成绩，最后求出学生成绩的总值和平均值）
+    var totalStuNum = prompt('请输入学生的总人数：');
+    var totalStuScore = 0;
+    var totalStuAverage = 0;
+    for (var i = 0; i < totalStuNum; i++) {
+      var score = prompt('请输入第' + (i + 1) + '个学生的成绩：');
+      totalStuScore += parseInt(score)
+    }
+    totalStuAverage = totalStuScore / totalStuNum;
+    console.log('学生的总成绩为：' + totalStuScore);
+    console.log('学生的总成绩的平均分为：' + totalStuAverage);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

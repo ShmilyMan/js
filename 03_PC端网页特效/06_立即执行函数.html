@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+        立即执行函数：该函数不用调用就可以直接执行
+        书写形式  1.(function 函数名(形参){函数体})(实参)  2.(function 函数名(形参){函数体}(实参))
+        作用：主要的作用是创建了一个独立的作用域，不会引起变量名冲突的问题
+    */
+    // 1.第一种形式
+    (function add(a,b) {
+      console.log(a + b);
+    })(1,2);
+    // 2.第二种形式
+    (function add(a,b) {
+      console.log(a + b);
+    }(44,55));
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      background-color: #000;
+    }
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    .nav {
+      position: relative;
+      width: 1200px;
+      height: 50px;
+      margin: 100px auto;
+      background: url(images/rss.png) no-repeat right center;
+      background-color: #fff;
+    }
+    .nav ul {
+      position: absolute;
+    }
+    .nav li {
+      float: left;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      padding: 0 10px;
+    }
+    .nav a:hover {
+      color: #fff;
+    }
+    .nav .cloud {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 83px;
+      height: 50px;
+      background: url(images/cloud.gif) no-repeat left center;
+    }
+    .nav .current {
+      color: green !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="cloud"></div>
+    <ul>
+      <li><a href="#" class="current">首页新闻</a></li>
+      <li><a href="#">师资力量</a></li>
+      <li><a href="#">活动策划</a></li>
+      <li><a href="#">企业文化</a></li>
+      <li><a href="#">招聘信息</a></li>
+      <li><a href="#">公司简介</a></li>
+    </ul>
+  </div>
+  <script src="animate.js"></script>
+  <script>
+    var cloud = document.querySelector('.cloud');
+    var lis = document.querySelectorAll('ul li');
+
+    var current = 0;
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].addEventListener('mouseover', function () {
+        this.querySelector('a').style.color = '#fff';
+        animate(cloud, this.offsetLeft);
+      })
+      lis[i].addEventListener('mouseout', function () {
+        this.querySelector('a').style.color = '#000';
+        animate(cloud, current);
+      })
+      lis[i].addEventListener('click', function () {
+        current = this.offsetLeft;
+        for (var j = 0; j < lis.length; j++) {
+          lis[j].querySelector('a').className = '';
+        }
+        this.querySelector('a').className = 'current';
+      })
+    }
+  </script>
+</body>
+</html>

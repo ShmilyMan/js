@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .father {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 150px auto;
+      background-color: pink;
+    }
+    .son {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      left: 50%;
+      top: 50%;
+      margin-left: -75px;
+      margin-top: -75px;
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+  <script>
+    /*
+        元素偏移量系列 offset（偏移量）我们使用offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。
+        1.获得元素距离带有定位父元素的位置，如果父元素没有定位，则获取的是距离body的位置
+        2.获得元素自身的大小（宽度高度）
+        3.注意：返回的数值都不带单位
+        offset系列属性                         作用
+        element.offsetParent                 返回作为该元素带有定位的父级元素 如果父级没有定位则都会返回body
+        element.offsetTop                    返回元素相对带有定位父元素上方的偏移
+        element.offsetLeft                   返回元素相对带有定位父元素左边框的偏移
+        element.offsetWidth                  返回自身，包括padding、边框、内容区的宽度，返回的数值不带有单位
+        element.offsetHeight                 返回自身，包括padding、边框、内容区的高度，返回的数值不带有单位
+    */
+    /*
+        offset 和 style 的区别
+        offset                                        style
+        offset可以得到任意样式表中的样式                   style只能得到行内样式表中的样式
+        offset获取到的值是数字型的没有单位                 style获得的是带有单位的字符串
+        offsetWidth包含padding+border+width            style.width获得的是不包含padding和boeder的值
+        offset是只读属性，只能获取不能赋值                 style是可读写属性，可以回去也可以赋值
+        * 如果获取值的话用offset比较合适，如果想要修改值的话用style比较合适
+    */
+    // 1. element.offsetLeft & element.offsetTop
+    var son = document.querySelector('.son');
+    console.log(son.offsetLeft);
+    console.log(son.offsetTop);
+    // 2. element.offsetWidth & element.offsetHeight
+    console.log(son.offsetWidth);
+    console.log(son.offsetHeight);
+    // 3. element.offsetParent
+    console.log(son.offsetParent);
+  </script>
+</body>
+</html>

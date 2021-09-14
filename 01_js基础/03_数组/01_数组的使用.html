@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+        1.数组的概念：数组可以把一组相关的数据一起存放，并提供方便的访问（获取方式）。
+        2.数组的创建方式：
+          （1）利用new关键字创建数组
+              var arr = new Array();  --一般不常用
+              var arr = new Array(2);   -- 表示创建了一个长度为2的空的数组
+              var arr = new Array(2, 3);  -- 相当于 var arr = [2, 3];
+          （2）利用数组字面量创建数组
+              var arr = [1,2,'大黄',true]; --常用
+           注意：
+              * 数组中可以存放任意类型的数据，例如字符串、数字、布尔值等。
+              * 数组里面存放的元素我们称之为数组元素。
+        3.获取数组中的元素
+          通过索引号来获取数组中的元素：arr[索引号]   * 数组中的索引是从0开始的
+        4.数组的遍历
+          for(var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+          }
+          依次输出数组中各个数组元素
+        5.数组中新增元素
+          * 通过改变length的长度为数组新增元素
+            arr.length = 10;  // 数组长度超过之前数组长度部分的数据类型为undefined
+          * 通过索引号为数组新增元素
+            arr[新增的索引号] = 新增的元素;  // 直接赋值就可以了
+    */
+  </script>
+</head>
+<body>
+
+</body>
+</html>

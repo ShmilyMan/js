@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+        js中数据类型的分类：
+         简单数据类型：Number,String,Boolean,Undefined,Null
+         复杂数据类型：Object
+
+        一、简单数据类型
+              数据类型            说明                                            默认值
+              Number            数字型，包含整形值和浮点型值，如21、5.21                0
+              Boolean           布尔型值，如true、false，等价于1和0                  false
+              String            字符串型，如'张三'                                   ''
+              Undefined         var a;声明了变量a但是没有给值，此时a=undefined      undefined
+              Null              var a = null;声明了变量a为空值                      null
+           1.数字型 Number
+             （1）数字型的进制：最常见的进制有二进制、八进制、十六进制、十进制
+             （2）在js中，八进制前面加 0，十六进制前面加 0x    * 当console.log()输出的时候会默认的转换成十进制数
+             （3）数字型的范围
+                *最大值：Number.MAX_VALUE，这个值为：1.7976931348623157e+308
+                *最小值：Number.MIN_VALUE，这个值为：5e-32
+             （4）数字型的三个特殊值
+                *infinity：代表无穷大，大于任何数值
+                *-infinity：代表无穷小，小于任何数值
+                *NaN：not a number,非数值类型      -- isNaN(param) 判断一个变量是否为非数值类型，是的话返回false，不是的话返回true
+           2.字符串型 String
+              字符串类型可以是引号中的任意文本，其语法为双引号""和单引号''，因为HTML标签中的属性使用的是双引号,js这里我们更推荐使用单引号
+              注意：字符串的值是不可变的，改变的只是这个字符串变量名指针的指向，它指向了新的一段内容。所以不要使用过多的
+                   符串连接（+）操作，每个字符串连接惭怍都会开辟一段新的内存空间
+             （1）字符串引号的嵌套：js可以使用单引号嵌套双引号或者使用双引号嵌套单引号
+             （2）字符串的转义字符：转义字符都是以\开头的
+                  转义符           解释说明
+                  \n              换行符
+                  \\              斜杠\
+                  \'              '单引号
+                  \"              “双引号
+                  \t              tab缩进
+                  \b              一个空格符
+             （3）字符串的长度：字符串是由若干个字符组成的，这些字符的数量就是这个字符串的长度
+             （4）字符串的拼接：多个字符串之间可以使用+号进行字符串之间的拼接，其拼接方式为字符串+任何类型=拼接之后的新字符串，
+                  拼接前会把其他的类型转化成字符串类型再进行拼接
+           3.布尔型数据 Boolean
+              布尔类型有两个值，true和false，其中true代表真（1），而false代表假（0），布尔类型和数字类型相加的时候，true的值为1，false
+              的值为0
+           4.Undefined 和 Null
+              声明后没有被赋值的变量为undefined
+              一个变量用null赋值，他的值就位空（null）
+        二、获取变量的数据类型
+           typeof关键字可以用来获取变量的数据类型
+           eg: typeof 'pink',typeof 123
+        三、数据类型的转换（一般使用表单，prompt等获取来得数据都是字符串类型的，这时就应该使用数据类型转换将数据转换成相应的类型）
+           （1）转换成字符串类型
+                * toString()  eg：123.toString()
+                * String()    eg：String(123)    -- 强制转换
+                * 使用字符串拼接的方式    eg：123 + ''（也叫隐形转换，使用的最多）
+           （2）转换成数字型
+                * parseInt(string)    -- 转化成整数，使用最多    *** 注意：parseInt('120px')    其结果为 120 没有报错，后面的px过滤掉了
+                * parseFloat(string)  -- 转化成浮点数，使用最多
+                * Number(string)  -- 强制转换
+                * js隐式转换（-，*，+） eg: '12' - 0
+           （3）转换成布尔型
+                Boolean()函数可以将其他的类型转换成boolean类型
+                * ‘’，0,NaN,null,undefined都会被转换成false，其余的都会被转换成true
+    */
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

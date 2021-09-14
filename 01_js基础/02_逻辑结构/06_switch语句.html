@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+        switch语句（用来进行固定值的选择）
+          switch (表达式) {
+            case value1:
+              // 语句1
+              break
+            case value2:
+              // 语句2
+              break
+            ......
+            default:
+              // 语句n
+              break
+          }
+        注意：
+          (1) 表达式这里一般是一个变量
+          (2) switch语句的执行效率比if else if 语句高，它是直接进行跳转的
+          (3) 表达式和值的匹配时全等的匹配，只有值和类型都相等时才会匹配成功
+          (4) 如果条件比较少时，则使用if else if 的形式比较好，执行效率比较高
+          (5) 如果条件比较多是，使用switch语句比较好，执行效率比较高
+    */
+
+    // 根据输入的水果名称给出价格
+    var fruit = prompt('请输入水果的名称：')
+    switch (fruit) {
+      case '苹果':
+        alert(fruit + '的价格为：3.5/斤')
+        break
+      case '榴莲':
+        alert(fruit + '的价格为：35/斤')
+        break
+      default:
+        alert('不存在该水果哦!')
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

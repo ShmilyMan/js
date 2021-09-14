@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="animate.js"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .slider {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      right: 0;
+      bottom: 200px;
+    }
+    span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      z-index: 9999;
+      line-height: 40px;
+      background-color: skyblue;
+    }
+    .content {
+      /*display: none;*/
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 40px;
+      line-height: 40px;
+      text-align: left;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <span>←</span>
+    <div class="content">返回顶部</div>
+  </div>
+  <script>
+    var slider = document.querySelector('.slider');
+    var content = document.querySelector('.content');
+
+    slider.addEventListener('mouseover', function () {
+      animate(content, slider.offsetWidth - content.offsetWidth, function () {
+        slider.children[0].innerHTML = '→';
+      });
+    });
+    slider.addEventListener('mouseout', function () {
+      animate(content, 0, function () {
+        slider.children[0].innerHTML = '←';
+      });
+    });
+  </script>
+</body>
+</html>

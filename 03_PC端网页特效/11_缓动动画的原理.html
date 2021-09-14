@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      position: absolute;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button class="forward500">forward500</button>
+  <button class="forward800">forward800</button>
+  <div></div>
+  <script>
+    // 核心原理：每次运动的步长 = （最终的位置 - 现在的位置） / 10
+    function animate(obj, target) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function () {
+        // 对 step 取整，防止出现小数数字不精确的问题
+        // 如果step大于0则向上取整反正则向下取整
+        var step = (target - obj.offsetLeft) / 10;
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        if (obj.offsetLeft === target) {
+          clearInterval(obj.timer);
+        }
+        obj.style.left = obj.offsetLeft + step + 'px';
+      }, 30);
+    }
+
+    var div = document.querySelector('div');
+    var forward = document.querySelector('.forward500');
+    var forward2 = document.querySelector('.forward800');
+
+    forward.addEventListener('click', function () {
+      animate(div, 500);  // 调用所封装的动画函数
+    });
+    forward2.addEventListener('click', function () {
+      animate(div, 800);  // 调用所封装的动画函数
+    });
+  </script>
+</body>
+</html>

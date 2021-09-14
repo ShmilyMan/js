@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button id="btn">唐伯虎</button>
+  <script>
+    // 点击按钮弹出对话框
+    /*
+        1.事件是有三部分组成： 事件源  事件类型  事件处理程序    我们也称为事件三要素
+        事件源：事件触发的对象
+        事件类型：如何触发  什么事件  比如鼠标点击(onclick)  还是鼠标经过  还是键盘按下
+        事件处理程序：通过一个函数赋值的方式完成
+
+        2.执行事件的步骤：
+        (1) 获取事件源。
+        (2) 注册事件（绑定事件）。
+        (3) 添加事件处理程序（采用函数赋值形式）。
+
+        3.常见的鼠标事件。
+            鼠标事件               触发条件
+            onclick              鼠标点击触发
+            onmouseover          鼠标经过触发
+            onmouseout           鼠标离开触发
+            onfocus              获得鼠标焦点触发
+            onblur               失去鼠标焦点触发
+            onmousemove          鼠标移动触发
+            onmouseup            鼠标弹起触发
+            onmousedown          鼠标按下触发
+
+            *** mouseover 和 mouseenter 的区别：mouseover可以执行多次是有事件冒泡的而 mouseenter 只能执行一次是没有事件冒泡的
+    */
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      alert('点秋香');
+    }
+  </script>
+</body>
+</html>

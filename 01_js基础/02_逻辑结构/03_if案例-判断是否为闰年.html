@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+      输入一个年份，并根据输入的年份来判断是否为闰年
+    */
+    var year = prompt('请输入年份：')
+    if ( year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ) {
+      alert(year + '年是闰年')
+    } else {
+      alert(year + '年是平年')
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

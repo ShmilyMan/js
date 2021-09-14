@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div class="demo">
+    <div class="weibo">
+      <div class="box"></div>
+    </div>
+  </div>
+  <script>
+    /*
+        对父节点的节点操作：
+        node.parentNode: 获取离该元素最近的父节点（亲爸爸） 如果没有找到，则返回 null
+    */
+    var weibo = document.querySelector('.weibo');
+    var demo = weibo.parentNode;
+    console.log(demo);
+  </script>
+</body>
+</html>

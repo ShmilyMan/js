@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    .nav {
+      width: 1200px;
+      height: 40px;
+      margin: 100px auto;
+    }
+    .nav .item {
+      float: left;
+      width: 80px;
+    }
+    .item a {
+      display: block;
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+    .item a:hover {
+      background-color: #eee;
+    }
+    .item {
+      position: relative;
+    }
+    .item .tab_body {
+      position: absolute;
+      display: none;
+      top: 40px;
+      left: 0;
+      width: 80px;
+    }
+    .tab_body li {
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid #fecc5b;
+      border-top: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <ul class="nav">
+    <li class="item">
+      <a href="#" class="tab_title">微博</a>
+      <ul class="tab_body">
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+    </li>
+    <li class="item">
+      <a href="#" class="tab_title">微博</a>
+      <ul class="tab_body">
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+    </li>
+    <li class="item">
+      <a href="#" class="tab_title">微博</a>
+      <ul class="tab_body">
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+    </li>
+    <li class="item">
+      <a href="#" class="tab_title">微博</a>
+      <ul class="tab_body">
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+    </li>
+  </ul>
+  <script>
+    var items = document.querySelectorAll('.item');
+
+
+    for (var i = 0; i < items.length; i++) {
+      items[i].onmouseover = function () {
+        this.children[1].style.display = 'block';
+        this.children[0].style.backgroundColor = '#eee';
+      }
+      items[i].onmouseout = function () {
+        this.children[1].style.display = 'none';
+        this.children[0].style.backgroundColor = '#fff';
+      }
+    }
+  </script>
+</body>
+</html>

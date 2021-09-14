@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      position: absolute;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button>点击按钮开始行走</button>
+  <div></div>
+  <script>
+    // 将动画效果封装成一个函数 obj：实现动画的对象   target：要移动的距离
+    // obj.timer 的使用：防止了命名冲突的问题 而且不将定时器存入内存中增加了运行的效率
+    function animate(obj, target) {
+      clearInterval(obj.timer); // 先把之前的定时器清空，防止多次点击按钮创建多个定时器，运动的速度越来越快
+      obj.timer = setInterval(function () {
+        if (obj.offsetLeft >= target) {
+          clearInterval(obj.timer);
+        }
+        obj.style.left = obj.offsetLeft + 1 + 'px';
+      }, 15);
+    }
+
+    var div = document.querySelector('div');
+    var button = document.querySelector('button');
+
+    button.addEventListener('click', function () {
+      animate(div, 300);  // 调用所封装的动画函数
+    });
+  </script>
+</body>
+</html>

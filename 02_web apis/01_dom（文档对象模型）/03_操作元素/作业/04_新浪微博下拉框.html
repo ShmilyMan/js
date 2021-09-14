@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 78px;
+      /*height: 136px;*/
+      color: #4c4c4c;
+      text-align: center;
+      font-size: 12px;
+      margin-left: 50px;
+    }
+    .title {
+      position: relative;
+      width: 78px;
+      height: 39px;
+      line-height: 39px;
+    }
+    .title:hover{
+      cursor: pointer;
+      background-color: #ccc;
+    }
+    li {
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: #fff5da;
+    }
+    ul {
+      display: none;
+      width: 78px;
+      border-right: 1px solid #ebbe7a;
+      border-left: 1px solid #ebbe7a;
+    }
+    li {
+      width: 100%;
+      height: 31px;
+      line-height: 31px;
+      list-style: none;
+      border-bottom: 1px solid #ebbe7a;
+    }
+    a {
+      font-style: italic;
+      text-decoration: none;
+      color: #4c4c4c;
+    }
+    i {
+      position: absolute;
+      top: 14px;
+      right: 9px;
+      width: 9px;
+      height: 9px;
+      background: url(./img/icon.png) no-repeat 0 -352px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="title">
+      <a href="#">微博</a>
+      <i></i>
+    </div>
+    <ul>
+      <li>私信</li>
+      <li>评论</li>
+      <li>@我</li>
+    </ul>
+  </div>
+
+  <script>
+    var ul = document.querySelector('ul');
+    var box = document.querySelector('.box');
+
+    box.onmouseover = function () {
+      ul.style.display = 'block';
+    }
+    box.onmouseout = function () {
+      ul.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

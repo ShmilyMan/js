@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+      continue:指结束本次的循环，后面的循环还会继续执行
+      break:指结束从此以后的所有的循环语句，继续执行循环下面的部分语句
+    */
+    var sum = 0;
+    for (var i = 0; i < 100; i++) {
+      if (i == 50) {
+        break;  // 结束所有的循环
+      }
+      if (i % 10 == 0) {
+        continue; // 结束本次循环
+      }
+      sum += i;
+    }
+    alert(sum)
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      padding: 100px;
+    }
+    textarea {
+      display: inline-block;
+      width: 200px;
+      height: 100px;
+      resize: none;
+      outline: none;
+      border: 1px solid pink;
+    }
+    button {
+      display: inline-block;
+      width: 50px;
+      height: 20px;
+      margin-left: 20px;
+    }
+
+    ul {
+      margin: 50px 0 0 20px;
+    }
+    ul li {
+      height: 30px;
+      width: 500px;
+      color: #00a4ff;
+      line-height: 30px;
+      background-color: pink;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <textarea></textarea>
+  <button>提交</button>
+  <ul>
+
+  </ul>
+  <script>
+    var textarea = document.querySelector('textarea');
+    var button = document.querySelector('button');
+    var ul = document.querySelector('ul');
+
+    button.onclick = function () {
+      if (textarea.value === '') {
+        alert('输入内容为空!');
+        return false;
+      } else {
+        // 1.创建元素
+        var li = document.createElement('li');
+        // 注意：文本框输入的值存在value属性中，而innerHTML中的值只是提示信息的内容
+        li.innerHTML = textarea.value;  // 给所创建的li中的内容进行赋值
+        // 2.添加元素
+        ul.insertBefore(li, ul.children[0]);
+        }
+    }
+  </script>
+</body>
+</html>

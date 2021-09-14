@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    .focus {
+      overflow: hidden;
+      position: relative;
+      width: 721px;
+      height: 455px;
+      margin: 100px auto;
+    }
+    .focus ul{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 600%;
+    }
+    .focus ul li {
+      float: left;
+    }
+    .arrow-l,
+    .arrow-r{
+      display: none;
+      position: absolute;
+      top: 50%;
+      width: 35px;
+      height: 54px;
+      margin-top: -27px;
+      line-height: 55px;
+      text-align: center;
+      color: #fff;
+      background-color: rgba(0,0,0,.2);
+      z-index: 2;
+    }
+    .arrow-l:hover,
+    .arrow-r:hover {
+      background-color: rgba(0,0,0,.4);
+    }
+    .arrow-l {
+      left: 0;
+    }
+    .arrow-r {
+      right: 0;
+    }
+    .focus ol {
+      position: absolute;
+      left: 100px;
+      bottom: 25px;
+      width: 120px;
+      height: 12px;
+    }
+    .focus ol li {
+      float: left;
+      width: 12px;
+      height: 12px;
+      margin: 0 3px;
+      background-color: rgba(0,0,0,.3);
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+    }
+    .focus ol li:hover {
+      cursor: pointer;
+    }
+    .focus .current {
+      background-color: rgba(255,255,255,.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="focus">
+    <a href="javascript:;" class="arrow-l"><</a>
+    <a href="javascript:;" class="arrow-r">></a>
+    <ul>
+      <li>
+        <a href="#"><img src="images/focus.jpg"></a>
+      </li>
+      <li>
+        <a href="#"><img src="images/focus1.jpg"></a>
+      </li>
+      <li>
+        <a href="#"><img src="images/focus2.jpg"></a>
+      </li>
+      <li>
+        <a href="#"><img src="images/focus3.jpg"></a>
+      </li>
+    </ul>
+    <ol>
+
+    </ol>
+  </div>
+  <script src="animate.js"></script>
+  <script>
+    var focus = document.querySelector('.focus');
+    var arrow_l = document.querySelector('.focus .arrow-l');
+    var arrow_r = document.querySelector('.focus .arrow-r');
+    var ul = document.querySelector('.focus ul');
+    var ol = document.querySelector('.focus ol');
+    var imgWidth = ul.querySelector('img').offsetWidth;
+
+    // 1. 当鼠标移动到轮播图上时，切换按钮出现，反之，切换按钮隐藏
+    focus.addEventListener('mouseover', function () {
+      arrow_l.style.display = 'block';
+      arrow_r.style.display = 'block';
+      clearInterval(timer);
+      timer = null;
+    })
+    focus.addEventListener('mouseout', function () {
+      arrow_l.style.display = 'none';
+      arrow_r.style.display = 'none';
+      timer = setInterval(function () {
+        arrow_r.click();
+      }, 3000);
+    })
+
+    // 2.circle
+    // 动态生成 circle
+    var num = 0;  // 控制图片
+    for (var i = 0; i < ul.children.length; i++) {
+      var li = document.createElement('li');
+      li.setAttribute('data-index', i);
+      if (i === 0) {
+        li.className = 'current';
+      }
+      // 为每个 ol 里面的小 li 添加点击事件
+      li.addEventListener('click', function () {
+        // 干掉所有人
+        for (var j = 0; j < ol.children.length; j++) {
+          ol.children[j].className = '';
+        }
+        // 留下我自己
+        this.className = 'current';
+        var index = this.getAttribute('data-index');
+        num = index;
+        // 切换图片
+        animate(ul,-index * imgWidth);
+      })
+      ol.appendChild(li);
+    }
+
+    // 动态的为图片集的末尾添加第一张图片做无缝切换的效果
+    var last_img = ul.children[0].cloneNode(true);
+    ul.appendChild(last_img);
+
+    // 3.右箭头
+    var flag = true;  // 节流阀 防止点击速度过快而出现的播放速度过快的情况
+    arrow_r.addEventListener('click', function () {
+      if (flag) {
+        flag = false;   // 关闭节流阀
+        if (num === ul.children.length - 1) {
+        num = 0;
+        ul.style.left = 0;
+        }
+        num++;
+        // 运行完毕再打开节流阀
+        animate(ul, -imgWidth * num, function () {
+          flag = true;
+        });
+
+        var index = parseInt(ol.querySelector('.current').getAttribute('data-index'));
+        if (index === ul.children.length - 2) {
+          index = -1;
+        }
+        // 干掉所有的
+        for (var i = 0; i < ol.children.length; i++) {
+            ol.children[i].className = '';
+          }
+        // 留下我自己
+        ol.children[index + 1].className = 'current';
+      }
+    })
+
+    // 4.左箭头
+    arrow_l.addEventListener('click', function () {
+      if (num === 0) {
+        ul.style.left = -4 * imgWidth + 'px';
+        num = 4;
+      }
+      num--;
+      animate(ul, -imgWidth * num);
+
+      var index = parseInt(ol.querySelector('.current').getAttribute('data-index'));
+      console.log(index);
+      if (index === 0) {
+        index = 4;
+      }
+      // 干掉所有的
+      for (var i = 0; i < ol.children.length; i++) {
+          ol.children[i].className = '';
+      }
+      ol.children[index - 1].className = 'current';
+    })
+
+    // 5.开始时自动播放,当鼠标移动到focus上，停止自动播放，鼠标离开，开始自动播放
+    var timer = setInterval(function () {
+      arrow_r.click();
+    }, 3000);
+
+  </script>
+</body>
+</html>
